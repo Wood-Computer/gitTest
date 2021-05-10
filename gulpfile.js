@@ -1,8 +1,5 @@
 const gulp = require('gulp');
 const ts = require('gulp-typescript');
-// générer les sourcemaps pour le débogueur https://github.com/ivogabe/gulp-typescript/issues/201#issuecomment-138088048
-const sourcemaps = require('gulp-sourcemaps');
-var path = require('path');
 const JSON_FILES = ['src/*.json', 'src/**/*.json'];
 const CSS_FILES = ['public/css/*.css'];
 const JS_FILES = ['public/lib/*.js'];
@@ -11,19 +8,9 @@ const JS_FILES = ['public/lib/*.js'];
 const tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('scripts', () => {
-  const tsResult = tsProject
-  .src()
-  .pipe(sourcemaps.init())
+  const tsResult = tsProject.src()
   .pipe(tsProject());
-  return tsResult.js
-    .pipe(sourcemaps.write({
-      // Return relative source map root directories per file.
-      sourceRoot: function (file) {
-        var sourceFile = path.join(file.cwd, file.sourceMap.file);
-        return path.relative(path.dirname(sourceFile), file.cwd);
-      }
-    }))
-    .pipe(gulp.dest('dist'));
+  return tsResult.js.pipe(gulp.dest('dist'));
 });
 
 gulp.task('watch', function watchSrc() {

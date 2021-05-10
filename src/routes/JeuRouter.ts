@@ -122,10 +122,43 @@ export class JeuRouter {
     }
   }
 
+  public redemarrerJeu(req: Request, res: Response, next: NextFunction){
+
+    // obtenir nom de la requête
+    let nom = req.params.nom;
+
+    try {
+      // Invoquer l'opération système (du DSS) dans le contrôleur GRASP
+      let resultat = this.jeu.redemarrerJeu();
+      (req as any).flash('Jeu redemarré');      
+      res.status(200)
+        .send({
+          message: 'Success',
+          status: res.status,
+          resultat
+        });
+
+    } catch (error) {
+      var code = 500;
+
+      // Afficher les erreurs qui sont définies par l'API
+      if (error.code) {
+        (req as any).flash(error.message);
+        code = error.code;
+      }
+  
+      res.status(code).json({ error: error.toString() });
+    }
+    
+
+  }
+
   /**
      * Take each handler, and attach to one of the Express.Router's
      * endpoints.
      */
+
+
   init() {
     this.router.post('/demarrerJeu', this.demarrerJeu.bind(this)); // pour .bind voir https://stackoverflow.com/a/15605064/1168342
     this.router.get('/jouer/:nom', this.jouer.bind(this));

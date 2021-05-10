@@ -1,10 +1,10 @@
 
 
 # Identification de l'étudiant
-- <nomComplet1>Entrer votre nom</nomComplet1>
-- <courriel1>Entrer votre courriel</courriel1>
-- <codeMoodle1>Entrer votre code moodle obtenu à partir de Signet, 2 lettres majuscule avec 5 chiffres</codeMoodle1>
-- <githubAccount1>Entrer l'identifiant de votre compte github</githubAccount1>
+- <nomComplet1>Kevin Duong</nomComplet1>
+- <courriel1>kevin.duong.1@ens.etsmtl.ca</courriel1>
+- <codeMoodle1>AQ45240</codeMoodle1>
+- <githubAccount1>wood-computer</githubAccount1>
 
 # Squelette pour un API simple dans Node, Express et TypeScript
 
@@ -100,9 +100,15 @@ Voici la même figure, mais sous forme de diagramme de séquence avec l'acteur. 
 4. Le Joueur demande à terminer le jeu.
 1. Le Système affiche un tableau de bord avec les noms des joueurs et le ratio des parties gagnées (nombre de fois gagné / nombre de lancers).
 
+#### Redémarrer
+1. Le Joueur demande à redémarrer l'application.
+2. Le Système termine tous les jeux en cours et redémarre l'application.
+
 ### Diagramme de cas d’utilisation
 
-![Diagramme de cas d'utilisation](http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-node-express-ts/master/docs/modeles/dcu.puml)
+![Diagramme de cas d'utilisation](http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://raw.githubusercontent.com/cc-yvanross/lab0-Wood-Computer/master/docs/modeles/dcu.puml?token=AOKRSXNLUXKTVUKDQO7DVATASAA6A)
+
+![Diagramme de cas d'utilisation](docs/modeles/dcu/Diagramme%20de%20cas%20d'utilisation.svg)
 
 ### Modèle du domaine
 
@@ -146,3 +152,11 @@ Voici la même figure, mais sous forme de diagramme de séquence avec l'acteur. 
 - L’instance j de Joueur a été supprimée sur une base de correspondance avec nom
 
 ![Diagramme de séquence, terminerJeu](http://www.plantuml.com/plantuml/proxy?cache=no&fmt=svg&src=https://raw.githubusercontent.com/profcfuhrmanets/log210-jeu-de-des-node-express-ts/master/docs/modeles/rdcu-terminerJeu.puml)
+
+#### Opération: `redemarrerJeu()`
+
+**Postconditions**
+
+- Toutes les instances de Joueur en cours ont été supprimées.
+
+![Diagramme de séquence, redemarrerJeu](https://raw.githubusercontent.com/cc-yvanross/lab0-Wood-Computer/master/docs/modeles/rdcu-redemarrerJeu.puml?token=AOKRSXOQFOQT5NV74OYF77LATE3M4)

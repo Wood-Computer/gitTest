@@ -1,1 +1,11 @@
-// Vous devez complétéer ce fichier
+@startuml
+skinparam Style strictuml
+
+
+actor       ":Joueur"       as J
+participant ":Système" as S
+
+J -> S : redémarrerJeu() 
+
+
+@enduml

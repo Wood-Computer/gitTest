@@ -1,1 +1,11 @@
-// Vous devez complétéer ce fichier
+@startuml
+skinparam Style strictuml
+participant ":JeuDeDes" as D 
+participant "joueurs:\nMap<String,Joueur>" as M
+
+
+?-> D : redemarrerJeu() 
+note right : selon Contrôleur \n(JeuDeDés est \nl'objet racine)
+D -> M : clear()
+note right : selon Expert
+@enduml

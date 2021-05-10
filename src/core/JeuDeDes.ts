@@ -14,7 +14,7 @@ export class JeuDeDes {
     constructor() {
         this.joueurs = new Map<string, Joueur>();
         this.d1 = new De();
-        this.d2 = new De();        
+        this.d2 = new De();       
     }
 
     /**
@@ -77,6 +77,11 @@ export class JeuDeDes {
             message: "Merci d'avoir joué."
         };
         return resultat;
+    }
+
+    public redemarrerJeu() {
+        
+        this.joueurs.clear();
     }
 
 
