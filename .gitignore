@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+dist
+.nyc_output
+typings-custom/flash.ts.broken
+secrets/
+coverage/
+report_test_stats.json
+
